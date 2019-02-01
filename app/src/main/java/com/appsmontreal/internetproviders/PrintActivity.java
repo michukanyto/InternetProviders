@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appsmontreal.internetproviders.model.Sound;
 import com.appsmontreal.internetproviders.model.User;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class PrintActivity extends AppCompatActivity implements View.OnClickList
     ArrayList<User> customers;
     Button btnEmail;
     Button btnReturn;
+    Sound sound = new Sound(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +36,8 @@ public class PrintActivity extends AppCompatActivity implements View.OnClickList
         for (int x = 0; x < customers.size(); x++){
             newString += customers.get(x).toString();
             Log.d(TAG1,customers.get(x).toString());
-
         }
-        Toast.makeText(this,newString,Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"Total user   =>   " + customers.size(),Toast.LENGTH_LONG).show();
         editTextUser.setText(newString);
         initialize();
 
@@ -53,13 +54,16 @@ public class PrintActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.buttonReturn :
+                sound.chargeSound("return");
                 finish();
                 break;
 
             case R.id.buttonEmail :
+                sound.chargeSound("next");
                 finish();
                 break;
         }
+        sound.releaseSound();
 
     }
 }

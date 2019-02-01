@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
     <Button
-        android:id="@+id/buttonEmail"
+        android:id="@+id/buttonReturn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="122dp"
@@ -75,11 +75,11 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonReturn"
+        app:layout_constraintStart_toEndOf="@+id/buttonEmail"
         app:layout_constraintTop_toBottomOf="@+id/editTextUser" />
 
     <Button
-        android:id="@+id/buttonReturn"
+        android:id="@+id/buttonEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="57dp"
