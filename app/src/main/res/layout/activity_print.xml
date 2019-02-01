@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PrintActivity"
+    android:background="#ced6e0">
+
+    <EditText
+        android:id="@+id/editTextUser"
+        android:layout_width="298dp"
+        android:layout_height="349dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginBottom="213dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="229dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="110dp"
+        android:text="USER LIST"
+        android:textColor="#2f3542"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSubTitles"
+        android:layout_width="299dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="30dp"
+        android:text="UserID .......................... ProvID "
+        android:textSize="20sp"
+        android:textAlignment="textStart"
+        android:textStyle="bold"
+        android:textColor="#2f3542"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+    <Button
+        android:id="@+id/buttonEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="83dp"
+        android:background="#57606f"
+        android:text="Return"
+        android:textColor="#FCFBFB"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonReturn"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUser" />
+
+    <Button
+        android:id="@+id/buttonReturn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="83dp"
+        android:background="#57606f"
+        android:text="Email"
+        android:textColor="#FCFBFB"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUser" />
+</android.support.constraint.ConstraintLayout>

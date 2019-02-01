@@ -11,50 +11,172 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
-        android:background="#aaa69d">
+        android:background="#ced6e0">
 
         <TextView
             android:id="@+id/textViewTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:text="Internet Providers"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:textColor="#1e272e"
+            android:textColor="#2f3542"
             android:gravity="center"
-            android:layout_gravity="center"
+
             />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="#a4b0be">
 
         <TextView
             android:id="@+id/textViewClientNumber"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_weight="1"
+            android:text="Client Number :"
+            android:textSize="19sp"
+            android:textStyle="italic|bold"
+            android:textColor="#2f3542"/>
+
+
 
         <EditText
             android:id="@+id/editTextClientNumber"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="2"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:inputType="number"
+            android:text=""
+            android:textSize="20sp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:background="#ced6e0">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewProvider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PROVIDER :"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#2f3542"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <RadioGroup
+                android:id="@+id/radioGroupProviders"
+                android:layout_width="match_parent"
+                android:layout_height="100sp"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/radioButtonBell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bell"
+                    android:textStyle="bold"
+                    android:textColor="#2f3542"
+                    android:layout_gravity=""
+                    />
+
+                <RadioButton
+                    android:id="@+id/radioButtonFido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Fido"
+                    android:textStyle="bold"
+                    android:textColor="#2f3542"/>
+
+                <RadioButton
+                    android:id="@+id/radioButtonBravo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bravo"
+                    android:textStyle="bold"
+                    android:textColor="#2f3542"
+                    />
+
+                <RadioButton
+                    android:id="@+id/radioButtonVideotron"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Videotron"
+                    android:textStyle="bold"
+                    android:textColor="#2f3542"/>
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="#ced6e0">
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Save"
+            android:textColor="#FCFBFB"
+            android:textStyle="bold"
+            android:background="#57606f"/>
+
+        <Button
+            android:id="@+id/buttonNew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="New"
+            android:textColor="#FCFBFB"
+            android:textStyle="bold"
+            android:background="#57606f"/>
+
+        <Button
+            android:id="@+id/buttonNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Next"
+            android:textColor="#FCFBFB"
+            android:textStyle="bold"
+            android:background="#57606f"/>
+    </LinearLayout>
 </LinearLayout>
