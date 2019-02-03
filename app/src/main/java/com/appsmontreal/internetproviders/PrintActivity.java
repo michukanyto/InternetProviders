@@ -63,7 +63,6 @@ public class PrintActivity extends AppCompatActivity implements View.OnClickList
                 finish();
                 break;
         }
-        sound.releaseSound();
 
     }
 }

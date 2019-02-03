@@ -9,19 +9,23 @@ public class User implements Serializable {
 
 
     public void setClientNumber(int clientNumber) {
+
         this.clientNumber = clientNumber;
     }
 
     public void setProviderNumber(int providerNumber) {
+
         this.providerNumber = providerNumber;
     }
 
 
     public int getClientNumber() {
+
         return clientNumber;
     }
 
     public int getProviderNumber() {
+
         return providerNumber;
     }
 

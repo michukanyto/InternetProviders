@@ -10,8 +10,8 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import com.appsmontreal.internetproviders.model.Animation;
 import com.appsmontreal.internetproviders.model.Sound;
 import com.appsmontreal.internetproviders.model.User;
 
@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText editTextClientNumber;
     RadioGroup radioGroupProviders;
     ArrayList<User> userList;
-    Sound sound = new Sound(this);
+    Sound sound;
+    Animation animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnExit.setOnClickListener(this);
         editTextClientNumber.requestFocus();
         userList = new ArrayList<>();
-
+        sound = new Sound(this);
+        animation = new Animation();
     }
 
     @Override
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
 
             case R.id.buttonNew :
+                animation.buttonRotateXanimation(btnNew);
                 radioGroupProviders.clearCheck();
                 editTextClientNumber.setText(null);
                 editTextClientNumber.requestFocus();
@@ -64,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonSave :
+                animation.buttonRotateXanimation(btnSave);
                 try {
                     int idUser = Integer.valueOf(editTextClientNumber.getText().toString());
                     int provider = 0;
@@ -100,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonNext :
+                animation.buttonRotateXanimation(btnNext);
                 myIntent = new Intent(this,PrintActivity.class);
                 myIntent.putExtra("Usr",(ArrayList<User>)userList);
                 startActivity(myIntent);
@@ -107,8 +112,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonExit :
-                finish();
+                animation.buttonRotateXanimation(btnExit);
                 sound.chargeSound("exit");
+                finish();
                 break;
         }
 //        sound.releaseSound();
