@@ -1,6 +1,7 @@
 package com.appsmontreal.internetproviders;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,7 @@ public class PrintActivity extends AppCompatActivity implements View.OnClickList
     Button btnEmail;
     Button btnReturn;
     Sound sound = new Sound(this);
+    String newString ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,7 @@ public class PrintActivity extends AppCompatActivity implements View.OnClickList
         editTextUser = (EditText) findViewById(R.id.editTextUser);
         customers = (ArrayList<User>) getIntent().getExtras().getSerializable("Usr");
 
-        String newString ="";
+
         for (int x = 0; x < customers.size(); x++){
             newString += customers.get(x).toString();
             Log.d(TAG1,customers.get(x).toString());
@@ -50,6 +52,21 @@ public class PrintActivity extends AppCompatActivity implements View.OnClickList
         btnReturn.setOnClickListener(this);
     }
 
+    public void sendEmail(){
+        Intent intentEmail = new Intent(Intent.ACTION_SENDTO);
+        intentEmail.setType("message/rfc822");
+        intentEmail.setData(Uri.parse("mailto:"));
+        intentEmail.putExtra(Intent.EXTRA_EMAIL  , new String[]{"user@gmail.com"});
+        intentEmail.putExtra(Intent.EXTRA_SUBJECT, "Internet Providers");
+        intentEmail.putExtra(Intent.EXTRA_TEXT   , "USER ID ..................... COMPANY\n\n" + newString);
+        try {
+            startActivity(Intent.createChooser(intentEmail, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this, "Email service was not found in this phone.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -60,7 +77,7 @@ public class PrintActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.buttonEmail :
                 sound.chargeSound("next");
-                finish();
+                sendEmail();
                 break;
         }
 

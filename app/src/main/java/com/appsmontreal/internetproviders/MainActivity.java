@@ -54,25 +54,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         Intent myIntent;
         User user;
+        Button btn =(Button) v;
+        animation.buttonRotateXanimation(btn);
 
 
         switch (v.getId()){
 
             case R.id.buttonNew :
-                animation.buttonRotateXanimation(btnNew);
+//                animation.buttonRotateXanimation(btnNew);
+                sound.chargeSound("new");
                 radioGroupProviders.clearCheck();
                 editTextClientNumber.setText(null);
                 editTextClientNumber.requestFocus();
-                sound.chargeSound("new");
+
                 break;
 
             case R.id.buttonSave :
-                animation.buttonRotateXanimation(btnSave);
+//                animation.buttonRotateXanimation(btnSave);
+                sound.chargeSound("save");
                 try {
                     int idUser = Integer.valueOf(editTextClientNumber.getText().toString());
                     int provider = 0;
                     int rbId = radioGroupProviders.getCheckedRadioButtonId();
-                    sound.chargeSound("save");
 
                     switch (rbId) {
                         case R.id.radioButtonBell:
@@ -104,20 +107,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.buttonNext :
-                animation.buttonRotateXanimation(btnNext);
+//                animation.buttonRotateXanimation(btnNext);
+                sound.chargeSound("next");
                 myIntent = new Intent(this,PrintActivity.class);
                 myIntent.putExtra("Usr",(ArrayList<User>)userList);
                 startActivity(myIntent);
-                sound.chargeSound("next");
                 break;
 
             case R.id.buttonExit :
-                animation.buttonRotateXanimation(btnExit);
+//                animation.buttonRotateXanimation(btnExit);
                 sound.chargeSound("exit");
                 finish();
                 break;
         }
-//        sound.releaseSound();
+
 
     }
 }
