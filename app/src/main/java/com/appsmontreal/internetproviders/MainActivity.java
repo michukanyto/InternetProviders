@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RadioGroup radioGroupProviders;
     ArrayList<User> userList;
     Sound sound;
-    Animation animation;
+    Animation animation = new Animation();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTextClientNumber.requestFocus();
         userList = new ArrayList<>();
         sound = new Sound(this);
-        animation = new Animation();
+//        animation = new Animation();
     }
 
     @Override
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btn =(Button) v;
         animation.buttonRotateXanimation(btn);
 
-
         switch (v.getId()){
 
             case R.id.buttonNew :
@@ -66,43 +65,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 radioGroupProviders.clearCheck();
                 editTextClientNumber.setText(null);
                 editTextClientNumber.requestFocus();
-
                 break;
 
             case R.id.buttonSave :
 //                animation.buttonRotateXanimation(btnSave);
-                sound.chargeSound("save");
                 try {
-                    int idUser = Integer.valueOf(editTextClientNumber.getText().toString());
-                    int provider = 0;
-                    int rbId = radioGroupProviders.getCheckedRadioButtonId();
+                    if (editTextClientNumber.getText().toString().matches("") || radioGroupProviders.getCheckedRadioButtonId() == -1){
+                        sound.chargeSound("save_error");
+                        Toast.makeText(this,"Please select an Internet Provider and write a Client ID ",Toast.LENGTH_SHORT).show();
+                    }else {
+                        sound.chargeSound("save");
+                        int idUser = Integer.valueOf(editTextClientNumber.getText().toString());
+                        int provider = 0;
+                        int rbId = radioGroupProviders.getCheckedRadioButtonId();
 
-                    switch (rbId) {
-                        case R.id.radioButtonBell:
-                            provider = 1;
-                            break;
+                        switch (rbId) {
+                            case R.id.radioButtonBell:
+                                provider = 1;
+                                break;
 
-                        case R.id.radioButtonFido:
-                            provider = 2;
-                            break;
+                            case R.id.radioButtonFido:
+                                provider = 2;
+                                break;
 
-                        case R.id.radioButtonBravo:
-                            provider = 3;
-                            break;
+                            case R.id.radioButtonBravo:
+                                provider = 3;
+                                break;
 
-                        case R.id.radioButtonVideotron:
-                            provider = 4;
-                            break;
+                            case R.id.radioButtonVideotron:
+                                provider = 4;
+                                break;
 
+                        }
+                        user = new User(idUser, provider);
+                        userList.add(user);
+                        Toast.makeText(this, user.toString(), Toast.LENGTH_SHORT).show();
                     }
-                    user = new User(idUser, provider);
-                    userList.add(user);
-                    Toast.makeText(this, user.toString(), Toast.LENGTH_SHORT).show();
-
 
                 }
                 catch (Exception e){
                     Toast.makeText(this,"Please Fill up all blank spaces",Toast.LENGTH_SHORT).show();
+                    sound.chargeSound("save_error");
                 }
                 break;
 
